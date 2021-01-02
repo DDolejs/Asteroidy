@@ -12,7 +12,7 @@ namespace Asteroidy.Models
         
         HttpClient htc = new HttpClient();
         
-        public async void GrabData(string link) { HttpResponseMessage resp = await htc.GetAsync(link); }
+        public async void SnatchData(string link) { HttpResponseMessage resp = await htc.GetAsync(link); }
         
     }
 }

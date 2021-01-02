@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Asteroidy.Models;
 
 namespace Asteroidy.Pages
 {
@@ -13,11 +14,12 @@ namespace Asteroidy.Pages
     public partial class ListViewPage1 : ContentPage
     {
         public ObservableCollection<string> Items { get; set; }
-
+        public DataSnatcher ds = new DataSnatcher();
         public ListViewPage1()
         {
             InitializeComponent();
-            
+            ds.SnatchData("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=kTlB1068LXF3IZeIHqWRPhMeFSNgvZVKyPOCRoRd");
+
             Items = new ObservableCollection<string>
             {
                 "Item 1",
