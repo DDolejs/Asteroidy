@@ -1,22 +1,31 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Collections.Generic;
+using Asteroidy.Pages;
 
 namespace Asteroidy
 {
     public partial class App : Application
-    {
+    {   
+        
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ListViewPage1();
+            
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
-        }
+          
+            
+        // Handle when your app starts
+
+    }
 
         protected override void OnSleep()
         {
