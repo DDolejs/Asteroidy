@@ -6,21 +6,36 @@ using Newtonsoft.Json.Serialization;
 
 namespace Asteroidy.Models
 {
-    class ConvertedObject
-    {public ConvertedObject() 
-        { 
-        
-        }
-        public string ID { get; set; }
-        public string NeoRefID { get; set; }
-        public string Name { get; set; }
-        public string NameLimited { get; set; }
-        public string Designation { get; set; }
-        public string Url { get; set; }
-        public EstimatedDiameter ED { get; set; }
-        public bool IsHazardous { get; set; }
-        public bool IsSentryObj { get; set; }
+    public class ConvertedObject
+    {
+
+        //public string ID { get; set; }
+        //public string NeoRefID { get; set; }
+        //public string Name { get; set; }
+        //public string NameLimited { get; set; }
+        //public string Designation { get; set; }
+        //public string Url { get; set; }
+        //public EstimatedDiameter ED { get; set; }
+        //public bool IsHazardous { get; set; }
+        //public bool IsSentryObj { get; set; }
+
+        public Links links { get; set; }
+
+        public IList<nearEarthObject> near_earth_objects { get; set; }
     }
+
+  public class Links 
+    {
+        public string next { get; set; }
+        public string self { get; set; }
+    }
+
+  public class nearEarthObject
+    {
+        public string id { get; set; }
+        public string name { get; set; }
+    }
+
     class EstimatedDiameter 
     { 
         public EstimatedDiameter(EDUnit km, EDUnit m, EDUnit miles, EDUnit feet) 

@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Newtonsoft.Json;
 using System.Net.Http;
+using System.Net.Http.Json;
 using Newtonsoft.Json.Serialization;
-
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Asteroidy.Models
 {
     public class DataSnatcher
     {
         
-        HttpClient htc = new HttpClient();
+        HttpClient client = new HttpClient();
         
-        public async void SnatchData(string link) { HttpResponseMessage resp = await htc.GetAsync(link); }
+        
+        public async Task<ConvertedObject> SnatchData(string link) 
+        {
+             
+            ConvertedObject ob =  await client.GetFromJsonAsync<ConvertedObject>(link);
+            return ob;
+        }
         
     }
 }

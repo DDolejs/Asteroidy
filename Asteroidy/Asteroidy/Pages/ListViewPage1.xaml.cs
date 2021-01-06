@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Asteroidy.Models;
+using Nito.AsyncEx;
+using System.Net.Http.Json;
 
 namespace Asteroidy.Pages
 {
@@ -18,7 +20,15 @@ namespace Asteroidy.Pages
         public ListViewPage1()
         {
             InitializeComponent();
-            ds.SnatchData("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=kTlB1068LXF3IZeIHqWRPhMeFSNgvZVKyPOCRoRd");
+            
+
+
+
+            //ConvertedObject obj = convertedObjectTask.Result;
+            System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
+            var result = Task.Run(async () => { await client.GetFromJsonAsync<ConvertedObject>("https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=kTlB1068LXF3IZeIHqWRPhMeFSNgvZVKyPOCRoRd&fbclid=IwAR1AajND0QfAHggvOj60oLoRVcQ5BWZnL3amceYZyQmulvz2DiJrFZ4Ii8Q"); });
+            result.GetAwaiter().GetResult();
+
 
             Items = new ObservableCollection<string>
             {
@@ -34,6 +44,7 @@ namespace Asteroidy.Pages
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            
             if (e.Item == null)
                 return;
 
