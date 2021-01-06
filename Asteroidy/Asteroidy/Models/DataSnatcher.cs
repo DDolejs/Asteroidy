@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http;
+using Newtonsoft.Json.Serialization;
 
 
 namespace Asteroidy.Models

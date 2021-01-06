@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Collections.Generic;
 using Asteroidy.Pages;
+using Newtonsoft.Json.Serialization;
 
 namespace Asteroidy
 {
